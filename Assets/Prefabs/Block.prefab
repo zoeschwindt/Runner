@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7578156915534528222}
   - component: {fileID: 2284707197912570729}
   - component: {fileID: 4822747271094119834}
+  - component: {fileID: 1738959911023532063}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Destroyer
@@ -86,6 +87,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1738959911023532063
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4688422504666165802}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 1, z: 1.0000004}
+  m_Center: {x: -0.00000023841858, y: 0, z: 0.000000059604645}
 --- !u!1 &4964090198630544656
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +118,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7731635828562668568}
   - component: {fileID: 3313577835807401574}
-  - component: {fileID: 3426879286808601768}
   m_Layer: 0
   m_Name: Block
   m_TagString: Destroyer
@@ -136,27 +157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   offsetCleaner: -30
---- !u!65 &3426879286808601768
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4964090198630544656}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 44.408997, y: 5.9793296, z: 17.345264}
-  m_Center: {x: -11.104365, y: -2.1130235, z: 7.3948293}
 --- !u!1 &5144153871556610472
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 3760136286132251570}
   - component: {fileID: 7198104643366081428}
   - component: {fileID: 8251706564006572863}
+  - component: {fileID: 2916613551626421203}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Destroyer
@@ -243,6 +244,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2916613551626421203
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5144153871556610472}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 0.99999994, z: 1.0000002}
+  m_Center: {x: -0.000000029802322, y: 0, z: 0.00000011920929}
 --- !u!1 &8601631321433170114
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +276,7 @@ GameObject:
   - component: {fileID: 4205730165494229353}
   - component: {fileID: 8767420318159089236}
   - component: {fileID: 606239090166537656}
+  - component: {fileID: 580338173609517254}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Destroyer
@@ -329,3 +352,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &580338173609517254
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8601631321433170114}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
+  m_Center: {x: -0.0000004172325, y: 0, z: 0.00000011920929}

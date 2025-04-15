@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -70,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             animator.SetBool("IsJumping", true);
             grounded = false;
+
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -77,13 +79,14 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Destroyer"))
         {
             grounded = true;
+            Debug.Log("grounded");
             animator.SetBool("IsJumping", false);
         }
 
-        //if (collision.gameObject.CompareTag("Obstacle"))
-        //{
-        //    Debug.Log("Choque");
-        //    //GameManager.gameOver = true;
-        //}
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Choque");
+            //GameManager.gameOver = true;
+        }
     }
 }
