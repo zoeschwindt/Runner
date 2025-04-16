@@ -9,16 +9,15 @@ public class TimeControl : MonoBehaviour
     public float time;
     public TMP_Text timeUI;
     public GameObject gameOverPanel;
-    public GameObject panelInicio; 
 
     private bool isGameOver = false; 
-    private bool gameStarted = false; 
+    private bool gameStarted = true; 
 
     void Start()
     {
         gameOverPanel.SetActive(false); 
-        panelInicio.SetActive(true);   
-        Time.timeScale = 0; 
+         
+      
         time = 60f; 
         Debug.Log("Juego Iniciado: Tiempo inicial 60 segundos");
     }
@@ -58,16 +57,7 @@ public class TimeControl : MonoBehaviour
     }
 
  
-    public void IniciarJuego()
-    {
-        panelInicio.SetActive(false); 
-        gameStarted = true; 
-        time = 60f; 
-        isGameOver = false;
-        gameOverPanel.SetActive(false); 
-        Time.timeScale = 1; 
-        Debug.Log("Juego Iniciado, Time.timeScale = 1");
-    }
+   
 
     
     public void RestartGame()
@@ -80,6 +70,12 @@ public class TimeControl : MonoBehaviour
         Time.timeScale = 1; 
         Debug.Log("Juego reiniciado");
     }
+
+    public void Salir()
+    {
+        Application.Quit();
+    }
+    
 
 
 }
