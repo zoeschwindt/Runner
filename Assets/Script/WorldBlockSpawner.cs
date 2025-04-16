@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WorldBlockSpawner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     [SerializeField]
     GameObject[] blocks;
 
@@ -14,7 +14,7 @@ public class WorldBlockSpawner : MonoBehaviour
         InvokeRepeating("SpawnBlock", 0, 1.8f);
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
        

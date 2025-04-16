@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
     private bool isDestroyer;
-    private int desiredLane = 1; //0:left 1:middle 2:right
+    private int desiredLane = 1; 
     Vector3 targetPosition = (Vector3.right);
     private Rigidbody playerRb;
     private Animator animator;
@@ -14,32 +15,21 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    //private void FixedUpdate()
-
-    //{
-    //    float move = Input.GetAxis("Horizontal");
-
-    //    playerRb.linearVelocity = new Vector3(move * moveSpeed * Time.fixedDeltaTime,0,0);
-    //    if (Input.GetKeyDown(KeyCode.Space) && isDestroyer)
-    //    {
-    //        playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-    //        isDestroyer = false;
-    //    }
-    //}
-    private void Update()
+    
+    void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             desiredLane++;
-            if (desiredLane == 3)
+            if (desiredLane > 2)
             {
                 desiredLane = 2;
             }
@@ -48,30 +38,40 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             desiredLane--;
-            if (desiredLane == -1)
+            if (desiredLane < 0)
             {
                 desiredLane = 0;
             }
         }
 
-        targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
+        
+        float targetX = 0f;
+
         if (desiredLane == 0)
         {
-            targetPosition += Vector3.left * laneDistance;
+            targetX = -laneDistance;
+        }
+        else if (desiredLane == 1)
+        {
+            targetX = 0;
         }
         else if (desiredLane == 2)
         {
-            targetPosition += Vector3.right * laneDistance;
+            targetX = laneDistance;
         }
 
-        transform.position = Vector3.Lerp(transform.position, targetPosition, 80 * Time.deltaTime);
+   
+        targetPosition = new Vector3(targetX, transform.position.y, transform.position.z);
 
+       
+        transform.position = Vector3.Lerp(transform.position, targetPosition, 10f * Time.deltaTime);
+
+       
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             animator.SetBool("IsJumping", true);
             grounded = false;
-
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -79,14 +79,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Destroyer"))
         {
             grounded = true;
-            Debug.Log("grounded");
             animator.SetBool("IsJumping", false);
-        }
-
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            Debug.Log("Choque");
-            //GameManager.gameOver = true;
+            Debug.Log("Estoy en el suelo.");
         }
     }
 }

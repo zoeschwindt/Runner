@@ -8,30 +8,78 @@ public class TimeControl : MonoBehaviour
 
     public float time;
     public TMP_Text timeUI;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject gameOverPanel;
+    public GameObject panelInicio; 
+
+    private bool isGameOver = false; 
+    private bool gameStarted = false; 
+
     void Start()
     {
-     
+        gameOverPanel.SetActive(false); 
+        panelInicio.SetActive(true);   
+        Time.timeScale = 0; 
+        time = 60f; 
+        Debug.Log("Juego Iniciado: Tiempo inicial 60 segundos");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (time > 0)
+        
+        if (gameStarted && !isGameOver)
         {
-         time -= Time.deltaTime;
+            if (time > 0)
+            {
+                time -= Time.deltaTime;
 
-        float minutes = Mathf.FloorToInt(time / 60);
-        float seconds = Mathf.FloorToInt(time % 60);
-        
-        timeUI.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+                float minutes = Mathf.FloorToInt(time / 60);
+                float seconds = Mathf.FloorToInt(time % 60);
+
+                
+                timeUI.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+                
+                Debug.Log("Tiempo restante: " + time);
+            }
+            else
+            {
+                GameOver(); 
+            }
         }
-        //else
-        //{
-        //    timeUI.text = "00:00";
-        //    SceneManager.LoadScene("GameOver");
-        //}
-
     }
+
+    
+    void GameOver()
+    {
+        isGameOver = true;
+        gameOverPanel.SetActive(true); 
+        Time.timeScale = 0; 
+        Debug.Log("Fin del juego, tiempo agotado");
+    }
+
+ 
+    public void IniciarJuego()
+    {
+        panelInicio.SetActive(false); 
+        gameStarted = true; 
+        time = 60f; 
+        isGameOver = false;
+        gameOverPanel.SetActive(false); 
+        Time.timeScale = 1; 
+        Debug.Log("Juego Iniciado, Time.timeScale = 1");
+    }
+
+    
+    public void RestartGame()
+    {
         
+        time = 60f; 
+        isGameOver = false; 
+        gameOverPanel.SetActive(false); 
+        gameStarted = true; 
+        Time.timeScale = 1; 
+        Debug.Log("Juego reiniciado");
+    }
+
+
 }
