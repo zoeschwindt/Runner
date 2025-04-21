@@ -46,8 +46,12 @@ public class TimeControl : MonoBehaviour
             }
         }
     }
+    public void AddTime(float extraTime)
+    {
+        time += extraTime;
+        Debug.Log("¡Tiempo agregado!: " + time);
+    }
 
-    
     void GameOver()
     {
         isGameOver = true;
