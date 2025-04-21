@@ -5,13 +5,14 @@ public class WorldBlockSpawner : MonoBehaviour
     
     [SerializeField]
     GameObject[] blocks;
+    public float timeinterval;
 
     public Transform spawnPoint;
     void Start()
     {
         SpawnBlock();
 
-        InvokeRepeating("SpawnBlock", 0, 1.8f);
+        InvokeRepeating("SpawnBlock", 0, timeinterval);
     }
 
   
