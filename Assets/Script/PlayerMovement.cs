@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     public float laneDistance;
     private bool grounded;
+    private float position_z;
 
 
     
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        position_z = transform.position.z;
     }
 
     
@@ -66,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
        
         transform.position = Vector3.Lerp(transform.position, targetPosition, 10f * Time.deltaTime);
 
+        transform.position = new Vector3(transform.position.x, transform.position.y, position_z);
        
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {

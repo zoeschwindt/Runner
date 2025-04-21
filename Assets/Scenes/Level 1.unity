@@ -1729,8 +1729,8 @@ MonoBehaviour:
   blocks:
   - {fileID: 4964090198630544656, guid: f360fdf0bea98ae48897022486406760, type: 3}
   - {fileID: 3310606763388687246, guid: 429ee017c8db8a744aa22419f0e20e8f, type: 3}
-  - {fileID: 511068758919749926, guid: 469c361ebeef07645bf41b00fe80b5b3, type: 3}
-  - {fileID: 7835231516620491640, guid: 8cc3ef35ecbac2a49917ad42a5550f93, type: 3}
+  - {fileID: 1025536272909124101, guid: 924bc93613867f1498815cca7edf35c0, type: 3}
+  - {fileID: 6607146415779917446, guid: 72e20860aca4cfe47bbe13cee34ab6c1, type: 3}
   spawnPoint: {fileID: 1154436547}
 --- !u!4 &1601752280
 Transform:
