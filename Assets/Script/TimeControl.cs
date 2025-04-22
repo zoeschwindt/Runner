@@ -6,26 +6,26 @@ using UnityEngine.SceneManagement;
 public class TimeControl : MonoBehaviour
 {
 
-    public float time;
-    public TMP_Text timeUI;
-    public GameObject gameOverPanel;
-
-    private bool isGameOver = false; 
-    private bool gameStarted = true; 
+    [SerializeField] private float time;
+    [SerializeField] private TMP_Text timeUI;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private Diamonds diamonds;
+    [SerializeField] private PlayerMovement playerMovement;
+    private bool gameStarted = true;
 
     void Start()
     {
-        gameOverPanel.SetActive(false); 
-         
-      
-        time = 60f; 
+        gameOverPanel.SetActive(false);
+
+
+        time = 60f;
         Debug.Log("Juego Iniciado: Tiempo inicial 60 segundos");
     }
 
     void Update()
     {
-        
-        if (gameStarted && !isGameOver)
+
+        if (gameStarted && !GameManager.gameOver)
         {
             if (time > 0)
             {
@@ -53,9 +53,8 @@ public class TimeControl : MonoBehaviour
 
     public void GameOver()
     {
-        isGameOver = true;
-        gameOverPanel.SetActive(true); 
-        Time.timeScale = 0; 
+        GameManager.gameOver = true;
+        GameManager.Instance.DefeatScreen();
         Debug.Log("Fin del juego, tiempo agotado");
     }
 
@@ -70,31 +69,29 @@ public class TimeControl : MonoBehaviour
         Diamonds.score = 0;
 
 
-        Object.FindFirstObjectByType<Diamonds>().UpdateScoreExternally();
+        diamonds.UpdateScoreExternally();
 
- 
-        Object.FindFirstObjectByType<Diamonds>().ResetMultiplier();
 
-        
+        diamonds.ResetMultiplier();
+
+
         time = 60f;
-        isGameOver = false;
         gameOverPanel.SetActive(false);
         gameStarted = true;
-       
+
 
         Debug.Log("Juego reiniciado");
 
-        PlayerMovement player = Object.FindFirstObjectByType<PlayerMovement>();
-        if (player != null)
+        if (playerMovement != null)
         {
-            player.ResetPlayer();
+            playerMovement.ResetPlayer();
         }
     }
     public void Salir()
     {
         Application.Quit();
     }
-    
+
 
 
 }
