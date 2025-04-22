@@ -7,11 +7,12 @@ public class Diamonds : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     private int multiplier = 1;
-
+    public GameObject scoreMultiplierText;
     void Start()
     {
         score = 0; 
         UpdateScoreText();
+        scoreMultiplierText.SetActive(false);
     }
     public void UpdateScoreExternally()
     {
@@ -33,8 +34,11 @@ public class Diamonds : MonoBehaviour
     {
         multiplier = newMultiplier;
         Debug.Log("¡Multiplicador x" + multiplier + " activado!");
+        scoreMultiplierText.SetActive(true);
         yield return new WaitForSeconds(duration);
         multiplier = 1;
+        scoreMultiplierText.SetActive(false);
+
         Debug.Log("Multiplicador terminado");
     }
     public void ResetMultiplier()
