@@ -205,13 +205,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1937049, y: -0, z: -0, w: 0.98105985}
-  m_LocalPosition: {x: 0.18, y: 12.12, z: -5.03}
+  m_LocalRotation: {x: 0.11383394, y: -0, z: -0, w: 0.9934998}
+  m_LocalPosition: {x: 0, y: 6.36, z: 0.42000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 22.338, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 13.073, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 7
-  laneDistance: 2
+  laneDistance: 3
 --- !u!1001 &815465162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1117,15 +1117,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: debbdc9fc6514ba43b7097c277cd9262, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.81
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: debbdc9fc6514ba43b7097c277cd9262, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.338
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: debbdc9fc6514ba43b7097c277cd9262, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: debbdc9fc6514ba43b7097c277cd9262, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1792,14 +1792,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blocks:
+  - {fileID: 1274707166652907859, guid: 0254537e07c12854eb8961e4b7415e4e, type: 3}
   - {fileID: 4964090198630544656, guid: f360fdf0bea98ae48897022486406760, type: 3}
   - {fileID: 3310606763388687246, guid: 429ee017c8db8a744aa22419f0e20e8f, type: 3}
   - {fileID: 1025536272909124101, guid: 924bc93613867f1498815cca7edf35c0, type: 3}
   - {fileID: 6607146415779917446, guid: 72e20860aca4cfe47bbe13cee34ab6c1, type: 3}
   - {fileID: 4068640427177972227, guid: 9190d73cb77e2c24495ec0e5db4b7af1, type: 3}
   - {fileID: 7676441954966036478, guid: 3031db7f0d1640f428825626ee9af6fe, type: 3}
-  timeinterval: 3.2
-  spawnPoint: {fileID: 1154436547}
+  initialBlockCount: 3
+  blockLength: 40
 --- !u!4 &1601752280
 Transform:
   m_ObjectHideFlags: 0
@@ -1809,7 +1810,7 @@ Transform:
   m_GameObject: {fileID: 1601752278}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.52, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
