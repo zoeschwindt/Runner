@@ -1,6 +1,7 @@
 using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,9 +15,10 @@ public class PlayerMovement : MonoBehaviour
     public float laneDistance;
     private bool grounded;
     private float position_z;
-
-
+    public GameObject gameOverPanel;
     
+
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
@@ -88,20 +90,42 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        
-
         if (collision.gameObject.CompareTag("Ground"))
         {
             grounded = true;
             animator.SetBool("IsFalling", false);
             animator.SetTrigger("IsGrouned");
         }
+
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Choque");
-            animator.SetTrigger("Fallflat");
-            GameManager.gameOver = true;
+            StartCoroutine(HandleGameOver()); 
         }
     }
+    private IEnumerator HandleGameOver()
+    {
+        animator.SetTrigger("Fallflat");
+        playerRb.linearVelocity = Vector3.zero;
+        playerRb.isKinematic = true;
+        this.enabled = false;
 
+        yield return new WaitForSeconds(1f);
+
+        GameManager.gameOver = true;
+
+        gameOverPanel.SetActive(true); // Mostrar pantalla de derrota
+        Time.timeScale = 0f; // Detener todo
+
+    }
+    public void ResetPlayer()
+    {
+        Animator animator = GetComponent<Animator>();
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        animator.Rebind();        // Reinicia las animaciones
+        animator.Update(0f);      // Fuerza actualización de la animación
+        rb.isKinematic = false;   // Reactiva la física
+        rb.linearVelocity = Vector3.zero; // Detiene el movimiento
+    }
 }

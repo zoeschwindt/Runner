@@ -6,17 +6,41 @@ public class Diamonds : MonoBehaviour
     public static int score = 0;
     public TextMeshProUGUI scoreText;
 
+    private int multiplier = 1;
+
     void Start()
     {
+        score = 0; 
         UpdateScoreText();
     }
-
+    public void UpdateScoreExternally()
+    {
+        UpdateScoreText();
+    }
     public void AddPoint()
     {
-        score++;
+        score += 1 * multiplier;
         UpdateScoreText();
     }
 
+    public void ActivateMultiplier(int newMultiplier, float duration)
+    {
+        StopAllCoroutines();
+        StartCoroutine(MultiplierCoroutine(newMultiplier, duration));
+    }
+
+    private System.Collections.IEnumerator MultiplierCoroutine(int newMultiplier, float duration)
+    {
+        multiplier = newMultiplier;
+        Debug.Log("¡Multiplicador x" + multiplier + " activado!");
+        yield return new WaitForSeconds(duration);
+        multiplier = 1;
+        Debug.Log("Multiplicador terminado");
+    }
+    public void ResetMultiplier()
+    {
+        multiplier = 1;
+    }
     void UpdateScoreText()
     {
         scoreText.text = " " + score;

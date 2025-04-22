@@ -14,10 +14,12 @@ public class MoveBlock : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.gameOver) return; // Si el juego terminó, no mover más
+
         transform.Translate(Vector3.back * speed * Time.deltaTime);
+
         if (transform.position.z < offsetCleaner)
         {
-
             if (WorldBlockSpawner.Instance != null)
             {
                 WorldBlockSpawner.Instance.SpawnBlock();

@@ -9775,7 +9775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c87115a72978646a488ddea721d00c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempoExtra: 5
+  tiempoExtra: 10
 --- !u!135 &8288728734707238027
 SphereCollider:
   m_ObjectHideFlags: 0

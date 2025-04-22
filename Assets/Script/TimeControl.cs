@@ -34,25 +34,24 @@ public class TimeControl : MonoBehaviour
                 float minutes = Mathf.FloorToInt(time / 60);
                 float seconds = Mathf.FloorToInt(time % 60);
 
-                
                 timeUI.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-
-                
                 Debug.Log("Tiempo restante: " + time);
             }
             else
             {
-                GameOver(); 
+                GameOver();
             }
         }
     }
     public void AddTime(float extraTime)
     {
         time += extraTime;
-        Debug.Log("¡Tiempo agregado!: " + time);
+        if (time < 0) time = 0;
+
+        Debug.Log("Tiempo actualizado: " + time);
     }
 
-    void GameOver()
+    public void GameOver()
     {
         isGameOver = true;
         gameOverPanel.SetActive(true); 
@@ -60,21 +59,37 @@ public class TimeControl : MonoBehaviour
         Debug.Log("Fin del juego, tiempo agotado");
     }
 
- 
-   
 
-    
+
+
+
     public void RestartGame()
     {
-        
-        time = 60f; 
-        isGameOver = false; 
-        gameOverPanel.SetActive(false); 
-        gameStarted = true; 
-        Time.timeScale = 1; 
-        Debug.Log("Juego reiniciado");
-    }
+        GameManager.gameOver = false;
+        Time.timeScale = 1f;
+        Diamonds.score = 0;
 
+
+        Object.FindFirstObjectByType<Diamonds>().UpdateScoreExternally();
+
+ 
+        Object.FindFirstObjectByType<Diamonds>().ResetMultiplier();
+
+        
+        time = 60f;
+        isGameOver = false;
+        gameOverPanel.SetActive(false);
+        gameStarted = true;
+       
+
+        Debug.Log("Juego reiniciado");
+
+        PlayerMovement player = Object.FindFirstObjectByType<PlayerMovement>();
+        if (player != null)
+        {
+            player.ResetPlayer();
+        }
+    }
     public void Salir()
     {
         Application.Quit();

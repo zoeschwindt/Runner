@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8053591772584604682}
   m_Layer: 0
   m_Name: PA_Bambooset2_joint3 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
