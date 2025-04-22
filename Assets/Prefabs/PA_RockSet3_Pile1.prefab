@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 426123832248976661}
   - component: {fileID: 8697264386806939427}
   - component: {fileID: 3138563133300507610}
+  - component: {fileID: 1855734139344646686}
   m_Layer: 0
   m_Name: PA_RockSet3_Pile1
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1855734139344646686
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3725247128924174086}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13.276962, y: 3.3698559, z: 6.1468983}
+  m_Center: {x: -1.7232132, y: 1.7446136, z: -0.071890354}

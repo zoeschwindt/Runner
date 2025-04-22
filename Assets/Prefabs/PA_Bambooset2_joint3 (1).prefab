@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7645191482809014878}
   - component: {fileID: 1675949955424149608}
   - component: {fileID: 4935561400143092881}
+  - component: {fileID: 8053591772584604682}
   m_Layer: 0
   m_Name: PA_Bambooset2_joint3 (1)
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8053591772584604682
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648004630518868045}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.23140125, y: 0.60078776, z: 0.3584402}
+  m_Center: {x: -9.2537054e-12, y: 0.006903895, z: 0.02576888}

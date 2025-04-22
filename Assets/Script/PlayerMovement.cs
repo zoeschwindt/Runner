@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         position_z = transform.position.z;
+        Physics.gravity = Physics.gravity * 2.5f;
     }
 
     
@@ -76,14 +77,31 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsJumping", true);
             grounded = false;
         }
+
+
+        if (playerRb.linearVelocity.y < 0)
+        {
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsFalling", true);
+        }
+
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Destroyer"))
+        
+
+        if (collision.gameObject.CompareTag("Ground"))
         {
             grounded = true;
-            animator.SetBool("IsJumping", false);
-            Debug.Log("Estoy en el suelo.");
+            animator.SetBool("IsFalling", false);
+            animator.SetTrigger("IsGrouned");
+        }
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Choque");
+            animator.SetTrigger("Fallflat");
+            GameManager.gameOver = true;
         }
     }
+
 }
