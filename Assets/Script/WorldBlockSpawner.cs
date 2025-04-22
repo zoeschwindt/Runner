@@ -2,29 +2,48 @@ using UnityEngine;
 
 public class WorldBlockSpawner : MonoBehaviour
 {
-    
-    [SerializeField]
-    GameObject[] blocks;
-    public float timeinterval;
 
-    public Transform spawnPoint;
+    public static WorldBlockSpawner Instance { get; private set; }
+
+    [SerializeField] private GameObject[] blocks;
+    [SerializeField] private int initialBlockCount = 3;
+    [SerializeField] private float blockLength = 40f;
+
+    private Transform lastBlock;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
-        SpawnBlock();
+        GameObject first = Instantiate(blocks[0], transform.position, Quaternion.identity);
+        lastBlock = first.transform;
 
-        InvokeRepeating("SpawnBlock", 0, timeinterval);
+        for (int i = 0; i < initialBlockCount; i++)
+        {
+            SpawnBlock();
+        }
+
     }
 
-  
-    void Update()
-    {
-       
-    }
     public void SpawnBlock()
     {
-        int randomIndex = Random.Range(0, blocks.Length);
-        GameObject block = Instantiate(blocks[randomIndex], spawnPoint.position, Quaternion.identity);
-        block.transform.SetParent(transform);
 
+        int prefabIndex = Random.Range(1, blocks.Length);
+
+
+        Vector3 spawnPosition = lastBlock.position + Vector3.forward * blockLength;
+
+        Transform newBlock = Instantiate(blocks[prefabIndex], spawnPosition, Quaternion.identity).transform;
+
+        lastBlock = newBlock;
     }
 }
