@@ -23,10 +23,8 @@ public class GameManager : MonoBehaviour
     {
         gameOver = false;
         pause_Panel.SetActive(false);
+        defeatScreen.SetActive(false);
     }
-
-    // Update is called once per frame
-
 
     void Update()
     {
@@ -37,7 +35,6 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isPaused = !isPaused;
             PauseGame();
         }
     }
@@ -45,12 +42,13 @@ public class GameManager : MonoBehaviour
     {
 
         defeatScreen.SetActive(true);
-
+        Cursor.lockState = CursorLockMode.Confined;
     }
-   
 
-   public void PauseGame()
+
+    public void PauseGame()
     {
+        isPaused = !isPaused;
         if (isPaused)
         {
             Time.timeScale = 0;

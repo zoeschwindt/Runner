@@ -15,9 +15,6 @@ public class TimeControl : MonoBehaviour
 
     void Start()
     {
-        gameOverPanel.SetActive(false);
-
-
         time = 60f;
         Debug.Log("Juego Iniciado: Tiempo inicial 60 segundos");
     }
