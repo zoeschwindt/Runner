@@ -8,6 +8,12 @@ public class GameManager : MonoBehaviour
     public GameObject defeatScreen;
     [SerializeField] private GameObject pause_Panel;
     private bool isPaused = false;
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClipGamePlay;
+    [SerializeField] private AudioClip audioClipGameOver;
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -18,12 +24,17 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = audioClipGamePlay;
+
     }
     void Start()
     {
         gameOver = false;
         pause_Panel.SetActive(false);
         defeatScreen.SetActive(false);
+        audioSource.Play();
     }
 
     void Update()
@@ -42,6 +53,9 @@ public class GameManager : MonoBehaviour
     {
 
         defeatScreen.SetActive(true);
+        audioSource.clip = audioClipGameOver;
+        audioSource.Play();
+
         Cursor.lockState = CursorLockMode.Confined;
     }
 
@@ -54,13 +68,20 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.Confined;
             pause_Panel.SetActive(true);
+            audioSource.Pause();
         }
         else
         {
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;
             pause_Panel.SetActive(false);
+            audioSource.UnPause();
         }
     }
 
+    public void ResetGame()
+    {
+        audioSource.clip = audioClipGamePlay;
+        audioSource.Play();
+    }
 }

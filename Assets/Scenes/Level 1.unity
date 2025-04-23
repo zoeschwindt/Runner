@@ -408,7 +408,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2936,6 +2936,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defeatScreen: {fileID: 1216094592}
   pause_Panel: {fileID: 1114055445}
+  audioSource: {fileID: 330585548}
+  audioClipGamePlay: {fileID: 8300000, guid: 92144f6def1fadf4c8c1ffc0bbf27498, type: 3}
+  audioClipGameOver: {fileID: 8300000, guid: 7be8502b27c4c804f88e9d4c23f0da9e, type: 3}
 --- !u!1 &2082930660
 GameObject:
   m_ObjectHideFlags: 0
