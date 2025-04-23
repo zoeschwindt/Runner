@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2952572660229933381}
   m_Layer: 0
   m_Name: PA_GroundAssetset_boat1
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 3171433210945445479}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.9975, y: 0, z: 0}
+  m_LocalScale: {x: 0.5906262, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,5 +106,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.1014578, y: 1.5616845, z: 6.5738463}
-  m_Center: {x: 0.04036343, y: 0, z: 0.012686491}
+  m_Size: {x: 3.1014576, y: 1.0093073, z: 6.205595}
+  m_Center: {x: 0.040363483, y: -0.118367195, z: 0.19681215}
