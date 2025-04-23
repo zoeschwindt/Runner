@@ -76,7 +76,7 @@ public class TimeControl : MonoBehaviour
         gameOverPanel.SetActive(false);
         gameStarted = true;
 
-
+        GameManager.Instance.ResetGame();
         Debug.Log("Juego reiniciado");
 
         if (playerMovement != null)

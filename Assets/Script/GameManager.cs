@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        audioSource = GetComponent<AudioSource>();
+       
         audioSource.clip = audioClipGamePlay;
 
     }
